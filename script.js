@@ -84,12 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      const noResults = select.querySelector('.searchable-select-no-results');
+
       input.addEventListener('input', () => {
         const query = input.value.toLowerCase();
+        let visibleCount = 0;
         options.forEach(opt => {
           const match = opt.textContent.toLowerCase().includes(query);
           opt.classList.toggle('hidden', !match);
+          if (match) visibleCount++;
         });
+        if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       });
 
       input.addEventListener('click', (e) => e.stopPropagation());
