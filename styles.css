@@ -860,12 +860,15 @@ body {
   line-height: 56px;
   letter-spacing: -1px;
   color: var(--color-brand-primary);
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
-.premium-amount.updating {
-  transform: scale(1.05);
-  opacity: 0.7;
+.premium-amount.fade-out {
+  opacity: 0.15;
+}
+
+.premium-amount.fade-in {
+  opacity: 1;
 }
 
 /* body-lg: 18px/28px Regular */
@@ -920,6 +923,12 @@ body {
 
 .breakdown-text strong {
   font-weight: 600;
+  display: inline-block;
+  transition: opacity 0.18s ease;
+}
+
+.breakdown-text strong.value-updating {
+  opacity: 0.15;
 }
 
 /* ==========================================
