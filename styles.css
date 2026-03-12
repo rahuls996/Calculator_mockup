@@ -197,7 +197,7 @@ body {
 
 .calculator-container {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 460px;
   grid-template-rows: auto auto;
   gap: var(--scale-24);
   align-items: stretch;
@@ -921,7 +921,7 @@ body {
 .plans-block-top {
   display: flex;
   align-items: center;
-  gap: var(--scale-4);
+  gap: var(--scale-12);
   padding: var(--scale-16);
   background: #f8f7fc;
   width: 100%;
