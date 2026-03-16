@@ -146,7 +146,11 @@
             <div class="shield-icon">
               <img src="Porting.svg" alt="Insurance shield" width="182" height="182">
             </div>
-            <div class="premium-display" id="c1-result">
+            <div class="calc-empty-state" id="c1-empty">
+              <p class="calc-empty-title">Your estimated premium</p>
+              <p class="calc-empty-subtitle">Adjust the sliders and hit "Calculate my premium" to see your price.</p>
+            </div>
+            <div class="premium-display" id="c1-result" hidden>
               <p class="premium-amount" id="c1-premiumAmount">₹ 13,700</p>
               <p class="premium-subtitle">per year — hospital bills go to zero</p>
               <p class="premium-perday" id="c1-perDay">₹38/day. Less than your morning chai.</p>
@@ -284,7 +288,11 @@
             <div class="shield-icon">
               <img src="Porting.svg" alt="Insurance shield" width="182" height="182">
             </div>
-            <div class="premium-display" id="c2-result">
+            <div class="calc-empty-state" id="c2-empty">
+              <p class="calc-empty-title">Your recommended cover</p>
+              <p class="calc-empty-subtitle">Fill in your details and hit "Find my ideal cover" to get your recommendation.</p>
+            </div>
+            <div class="premium-display" id="c2-result" hidden>
               <p class="premium-amount" id="c2-premiumAmount">₹ 13,700</p>
               <p class="premium-subtitle">is the cover your family needs</p>
               <p class="premium-perday" id="c2-perDay">Employer cover alone won't be enough. Here's why.</p>
@@ -414,7 +422,11 @@
             <div class="shield-icon">
               <img src="Porting.svg" alt="Insurance shield" width="182" height="182">
             </div>
-            <div class="premium-display" id="c3-result">
+            <div class="calc-empty-state" id="c3-empty">
+              <p class="calc-empty-title">Your recommended cover</p>
+              <p class="calc-empty-subtitle">Tell us about your life and hit "Calculate my cover" to see what your family needs.</p>
+            </div>
+            <div class="premium-display" id="c3-result" hidden>
               <p class="premium-amount" id="c3-premiumAmount">₹ 13,700</p>
               <p class="premium-subtitle">is the cover your family can't go without</p>
               <p class="premium-perday" id="c3-perDay">Most people are underinsured by 5x. Are you?</p>
@@ -534,7 +546,11 @@
             <div class="shield-icon shield-icon-large">
               <img src="Porting.svg" alt="Insurance shield" width="182" height="182">
             </div>
-            <div class="premium-display" id="c4-result">
+            <div class="calc-empty-state" id="c4-empty">
+              <p class="calc-empty-title">Your estimated premium</p>
+              <p class="calc-empty-subtitle">Adjust your coverage amount and hit "Calculate my premium" to see your price.</p>
+            </div>
+            <div class="premium-display" id="c4-result" hidden>
               <p class="premium-amount" id="c4-yearsAmount">25 years</p>
               <p class="premium-subtitle">is how long your family needs you covered</p>
               <p class="premium-perday" id="c4-perDay">Wait a year and your premium gets more expensive</p>
@@ -632,7 +648,11 @@
             <div class="shield-icon">
               <img src="Porting.svg" alt="Human life value calculator illustration" width="182" height="182">
             </div>
-            <div class="premium-display" id="c5-result">
+            <div class="calc-empty-state" id="c5-empty">
+              <p class="calc-empty-title">Your estimated premium</p>
+              <p class="calc-empty-subtitle">Set your coverage and hit "Calculate my premium" to see your price.</p>
+            </div>
+            <div class="premium-display" id="c5-result" hidden>
               <p class="premium-amount" id="c5-hlvAmount">₹ 1,20,00,000</p>
               <p class="premium-subtitle">is what your family would lose if you're gone</p>
               <p class="premium-perday" id="c5-perDay">Cover it all for as little as ₹500/month</p>
@@ -736,7 +756,11 @@
             <div class="shield-icon">
               <img src="Porting.svg" alt="Term insurance calculator" width="182" height="182">
             </div>
-            <div class="premium-display" id="c6-result">
+            <div class="calc-empty-state" id="c6-empty">
+              <p class="calc-empty-title">Your estimated premium</p>
+              <p class="calc-empty-subtitle">Choose your cover amount and hit "Calculate my premium" to see your price.</p>
+            </div>
+            <div class="premium-display" id="c6-result" hidden>
               <p class="premium-amount" id="c6-premiumAmount">₹ 7,000</p>
               <p class="premium-subtitle">per year — your family stays protected</p>
               <p class="premium-perday" id="c6-perDay">₹19/day to make sure they never struggle</p>

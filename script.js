@@ -149,12 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // =============================================
 
   function setLoadingState(calcId, isLoading) {
-    const skeleton = document.getElementById(calcId + '-skeleton');
-    const resultEl = document.getElementById(calcId + '-result');
-    const errorEl  = document.getElementById(calcId + '-error');
-    const btn      = document.querySelector('.cta-button[data-calc="' + calcId + '"]');
+    const skeleton  = document.getElementById(calcId + '-skeleton');
+    const resultEl  = document.getElementById(calcId + '-result');
+    const errorEl   = document.getElementById(calcId + '-error');
+    const emptyEl   = document.getElementById(calcId + '-empty');
+    const btn       = document.querySelector('.cta-button[data-calc="' + calcId + '"]');
 
     if (isLoading) {
+      if (emptyEl)  emptyEl.hidden  = true;
       if (resultEl) resultEl.hidden = true;
       if (errorEl)  errorEl.hidden  = true;
       if (skeleton) skeleton.hidden = false;
@@ -177,6 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function showResult(calcId, result) {
     const resultEl = document.getElementById(calcId + '-result');
     const errorEl  = document.getElementById(calcId + '-error');
+    const emptyEl  = document.getElementById(calcId + '-empty');
+    if (emptyEl)  emptyEl.hidden  = true;
     if (errorEl)  errorEl.hidden  = true;
     if (resultEl) resultEl.hidden = false;
     renderResult(calcId, result);
@@ -185,6 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function showError(calcId) {
     const resultEl = document.getElementById(calcId + '-result');
     const errorEl  = document.getElementById(calcId + '-error');
+    const emptyEl  = document.getElementById(calcId + '-empty');
+    if (emptyEl)  emptyEl.hidden  = true;
     if (resultEl) resultEl.hidden = true;
     if (errorEl)  errorEl.hidden  = false;
   }

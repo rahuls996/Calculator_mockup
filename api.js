@@ -162,7 +162,8 @@ const formulaMap = { c1: calcC1, c2: calcC2, c3: calcC3, c4: calcC4, c5: calcC5,
  */
 async function callPricingApi(calcId, params) {
   const LATENCY_MS = 800;
-  const FAILURE_RATE = 0.1; // 10% simulated failures to test error handling
+  // Failure rate set to 0 for mock — real failures come from the live API
+  const FAILURE_RATE = 0;
 
   await new Promise(resolve => setTimeout(resolve, LATENCY_MS));
 

@@ -1352,6 +1352,33 @@ body {
   100% { background-position: -200% 0; }
 }
 
+/* ── Initial empty / no-result state ── */
+
+.calc-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--scale-40) var(--scale-24);
+  gap: var(--scale-8);
+}
+
+.calc-empty-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--grey-600);
+  margin: 0;
+}
+
+.calc-empty-subtitle {
+  font-size: var(--text-sm);
+  color: var(--grey-400);
+  margin: 0;
+  max-width: 260px;
+  line-height: 1.5;
+}
+
 .price-skeleton {
   height: 54px;
   width: 220px;
