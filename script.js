@@ -151,14 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function setLoadingState(calcId, isLoading) {
     const skeleton  = document.getElementById(calcId + '-skeleton');
     const resultEl  = document.getElementById(calcId + '-result');
-    const errorEl   = document.getElementById(calcId + '-error');
     const emptyEl   = document.getElementById(calcId + '-empty');
     const btn       = document.querySelector('.cta-button[data-calc="' + calcId + '"]');
 
     if (isLoading) {
       if (emptyEl)  emptyEl.hidden  = true;
       if (resultEl) resultEl.hidden = true;
-      if (errorEl)  errorEl.hidden  = true;
       if (skeleton) skeleton.hidden = false;
       if (btn) {
         btn.disabled = true;
@@ -178,21 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showResult(calcId, result) {
     const resultEl = document.getElementById(calcId + '-result');
-    const errorEl  = document.getElementById(calcId + '-error');
     const emptyEl  = document.getElementById(calcId + '-empty');
     if (emptyEl)  emptyEl.hidden  = true;
-    if (errorEl)  errorEl.hidden  = true;
     if (resultEl) resultEl.hidden = false;
     renderResult(calcId, result);
-  }
-
-  function showError(calcId) {
-    const resultEl = document.getElementById(calcId + '-result');
-    const errorEl  = document.getElementById(calcId + '-error');
-    const emptyEl  = document.getElementById(calcId + '-empty');
-    if (emptyEl)  emptyEl.hidden  = true;
-    if (resultEl) resultEl.hidden = true;
-    if (errorEl)  errorEl.hidden  = false;
   }
 
   function renderResult(calcId, result) {
@@ -229,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =============================================
-  // Main fetch trigger — called by CTA and retry
+  // Main fetch trigger — called by CTA
   // =============================================
 
   async function triggerFetch(calcId) {
@@ -253,7 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       setLoadingState(calcId, false);
-      showError(calcId);
     }
   }
 
@@ -596,17 +582,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const calcId = btn.dataset.calc;
       triggerFetch(calcId);
     });
-  });
-
-  // =============================================
-  // Global: Retry Buttons
-  // =============================================
-
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('calc-retry-btn')) {
-      const calcId = e.target.dataset.calc;
-      triggerFetch(calcId);
-    }
   });
 
   // =============================================

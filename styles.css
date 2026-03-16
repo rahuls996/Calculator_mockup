@@ -1417,52 +1417,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Error block ── */
-
-.calc-error {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--scale-12);
-  padding: var(--scale-16) var(--scale-20);
-  margin-bottom: var(--scale-20);
-  background: #fff8f8;
-  border: 1px solid #fcd5d5;
-  border-radius: var(--radius-md);
-  text-align: center;
-}
-
-.calc-error-msg {
-  font-family: var(--font-family);
-  font-size: 14px;
-  font-weight: 400;
-  color: #c0392b;
-  line-height: 20px;
-  margin: 0;
-}
-
-.calc-retry-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--scale-8) var(--scale-20);
-  background: none;
-  border: 1.5px solid #c0392b;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-family);
-  font-size: 13px;
-  font-weight: 500;
-  color: #c0392b;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.calc-retry-btn:hover {
-  background: #c0392b;
-  color: #ffffff;
-}
-
 /* ── Mobile: sticky CTA bar ── */
 
 @media (max-width: 480px) {
