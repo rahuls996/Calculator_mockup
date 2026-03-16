@@ -962,7 +962,7 @@ body {
 
 .plans-trust-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--scale-8);
   flex: 1;
   font-family: var(--font-family);
