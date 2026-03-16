@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Health Insurance — ACKO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="seo.css">
 </head>
 <body class="seo-page">
 
-  <!-- ── Top Nav (simplified placeholder) ── -->
+  <!-- ── Top Nav ── -->
   <header class="seo-header">
     <div class="seo-header-inner">
-      <a href="/" class="seo-logo">
-        <img src="icons/acko-logo.svg" alt="ACKO" height="28">
-      </a>
+      <a href="index.html" class="seo-logo-link">ACKO</a>
     </div>
   </header>
 
-  <!-- ── Page body: sticky left + main content ── -->
+  <!-- ── Page layout: sticky left ToC + main content ── -->
   <div class="seo-layout">
 
     <!-- ── Left sticky Table of Contents ── -->
@@ -31,11 +33,11 @@
         <nav class="seo-toc-list">
           <a class="seo-toc-item active" href="#what-is">What is health insurance?</a>
           <a class="seo-toc-item" href="#hospitals">Top hospitals in India</a>
-          <a class="seo-toc-item" href="#at-a-glance">ACKO Personal Health Insurance at a Glance</a>
+          <a class="seo-toc-item" href="#at-a-glance">ACKO Health Insurance at a Glance</a>
           <a class="seo-toc-item" href="#calculator">Health Premium Calculator</a>
-          <a class="seo-toc-item" href="#ideal-coverage">What is the Ideal Health Insurance Coverage?</a>
+          <a class="seo-toc-item" href="#ideal-coverage">Ideal Health Insurance Coverage</a>
           <a class="seo-toc-item" href="#factors">Factors affecting your premium</a>
-          <a class="seo-toc-item" href="#how-to-buy">How to buy health insurance online</a>
+          <a class="seo-toc-item" href="#how-to-buy">How to buy online</a>
           <a class="seo-toc-item" href="#faqs">FAQs</a>
         </nav>
         <div class="seo-toc-fade"></div>
@@ -46,7 +48,7 @@
     <main class="seo-main">
 
       <!-- Breadcrumb -->
-      <nav class="seo-breadcrumb">
+      <nav class="seo-breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a>
         <span>/</span>
         <span>Health insurance</span>
@@ -59,7 +61,7 @@
         <div class="seo-two-col-list">
           <ul class="seo-list">
             <li>Surgeries Cost</li>
-            <li>Pre & Post hospitalisation cost</li>
+            <li>Pre &amp; Post hospitalisation cost</li>
             <li>Room Rent coverage</li>
             <li>Cashless hospitalisation</li>
           </ul>
@@ -75,30 +77,12 @@
       <section class="seo-section" id="hospitals">
         <h2 class="seo-h2">You can look after your family at top hospitals in India</h2>
         <div class="seo-hospital-grid">
-          <div class="seo-hospital-card">
-            <img src="icons/hospital.svg" alt="" width="48" height="48">
-            <span>Max Healthcare</span>
-          </div>
-          <div class="seo-hospital-card">
-            <img src="icons/hospital.svg" alt="" width="48" height="48">
-            <span>Narayana Health</span>
-          </div>
-          <div class="seo-hospital-card">
-            <img src="icons/hospital.svg" alt="" width="48" height="48">
-            <span>Manipal Hospitals</span>
-          </div>
-          <div class="seo-hospital-card">
-            <img src="icons/hospital.svg" alt="" width="48" height="48">
-            <span>Fortis Hospital</span>
-          </div>
-          <div class="seo-hospital-card">
-            <img src="icons/hospital.svg" alt="" width="48" height="48">
-            <span>Apollo Hospitals</span>
-          </div>
-          <div class="seo-hospital-card">
-            <img src="icons/hospital.svg" alt="" width="48" height="48">
-            <span>Aster Hospital</span>
-          </div>
+          <div class="seo-hospital-card"><img src="icons/hospital.svg" alt="" width="48" height="48"><span>Max Healthcare</span></div>
+          <div class="seo-hospital-card"><img src="icons/hospital.svg" alt="" width="48" height="48"><span>Narayana Health</span></div>
+          <div class="seo-hospital-card"><img src="icons/hospital.svg" alt="" width="48" height="48"><span>Manipal Hospitals</span></div>
+          <div class="seo-hospital-card"><img src="icons/hospital.svg" alt="" width="48" height="48"><span>Fortis Hospital</span></div>
+          <div class="seo-hospital-card"><img src="icons/hospital.svg" alt="" width="48" height="48"><span>Apollo Hospitals</span></div>
+          <div class="seo-hospital-card"><img src="icons/hospital.svg" alt="" width="48" height="48"><span>Aster Hospital</span></div>
         </div>
         <button class="seo-secondary-btn">Find cashless hospitals near you</button>
       </section>
@@ -143,179 +127,228 @@
             <div class="seo-table-cell">Ambulance Cover</div>
             <div class="seo-table-cell seo-table-cell--spec">Available</div>
           </div>
-          <div class="seo-table-row">
+          <div class="seo-table-row seo-table-row--last">
             <div class="seo-table-cell">Pre-existing Diseases</div>
             <div class="seo-table-cell seo-table-cell--spec">Covered as per T&amp;C</div>
-          </div>
-          <div class="seo-table-row seo-table-row--last">
-            <div class="seo-table-cell">More than 1,500cc</div>
-            <div class="seo-table-cell seo-table-cell--spec">₹24,596</div>
           </div>
         </div>
       </section>
 
-      <!-- ── Health Premium Calculator (embedded) ── -->
+      <!-- ================================================================
+           Health Premium Calculator — exact same markup as index.html (c1)
+           script.js + api.js handle all logic automatically
+           ================================================================ -->
       <section class="seo-section seo-calc-section" id="calculator">
         <h2 class="seo-h2">Calculate Your Health Insurance Premium</h2>
-        <p class="seo-body">See how much your health cover will cost — adjust the details below and hit Calculate.</p>
+        <p class="seo-body">See how much your health cover will cost — adjust the details and hit Calculate.</p>
 
         <div class="seo-calc-embed">
-          <div class="calculator-container">
-            <!-- Input panel -->
-            <div class="input-panel">
-              <div class="slider-group">
-                <div class="slider-header">
-                  <label class="slider-label">Your age</label>
-                  <div class="slider-value-box"><span id="sc1-ageValue">30</span></div>
-                </div>
-                <div class="slider-track-wrapper">
-                  <input type="range" id="sc1-ageSlider" min="18" max="100" value="30" class="custom-slider">
-                </div>
-                <div class="slider-range"><span>18 yrs</span><span>100 yrs</span></div>
-              </div>
+          <div class="calculator-wrapper">
+            <div class="calculator-container">
+              <div class="input-panel">
+                <h1 class="calculator-title">What does your health<br>cover cost?</h1>
 
-              <div class="slider-group">
-                <div class="slider-header">
-                  <label class="slider-label">Cover amount</label>
-                  <div class="slider-value-box"><span id="sc1-coverValue">₹10 L</span></div>
+                <div class="slider-group">
+                  <div class="slider-header">
+                    <label class="slider-label">Your age</label>
+                    <div class="slider-value-box"><span id="c1-ageValue">30</span></div>
+                  </div>
+                  <div class="slider-track-wrapper">
+                    <input type="range" id="c1-ageSlider" min="18" max="100" value="30" class="custom-slider">
+                  </div>
+                  <div class="slider-range"><span>18 yrs</span><span>100 yrs</span></div>
                 </div>
-                <div class="slider-track-wrapper">
-                  <input type="range" id="sc1-coverSlider" min="0" max="3" value="0" step="1" class="custom-slider">
-                </div>
-                <div class="slider-steps">
-                  <span class="slider-step">₹10 L</span>
-                  <span class="slider-step">₹25 L</span>
-                  <span class="slider-step">₹50 L</span>
-                  <span class="slider-step">₹1 Cr</span>
-                </div>
-              </div>
 
-              <div class="option-group">
-                <label class="option-label">Who are you covering?</label>
-                <div class="member-stepper-group">
-                  <div class="member-stepper">
-                    <img class="member-stepper-icon" src="icons/Adult.svg" alt="" width="40" height="40">
-                    <span class="member-stepper-label">Adults</span>
-                    <div class="member-stepper-controls">
-                      <button class="stepper-btn" id="sc1-adults-dec" aria-label="Decrease adults"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-                      <span class="stepper-value" id="sc1-adults-val" data-zero="false">1</span>
-                      <button class="stepper-btn" id="sc1-adults-inc" aria-label="Increase adults"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                <div class="slider-group">
+                  <div class="slider-header">
+                    <label class="slider-label">Cover amount</label>
+                    <div class="slider-value-box"><span id="c1-coverValue">₹10 L</span></div>
+                  </div>
+                  <div class="slider-track-wrapper">
+                    <input type="range" id="c1-coverSlider" min="0" max="3" value="0" step="1" class="custom-slider">
+                  </div>
+                  <div class="slider-steps">
+                    <span class="slider-step">₹10 L</span>
+                    <span class="slider-step">₹25 L</span>
+                    <span class="slider-step">₹50 L</span>
+                    <span class="slider-step">₹1 Cr</span>
+                  </div>
+                </div>
+
+                <div class="option-group">
+                  <label class="option-label">Who are you covering?</label>
+                  <div class="member-stepper-group">
+                    <div class="member-stepper">
+                      <img class="member-stepper-icon" src="icons/Adult.svg" alt="" width="40" height="40">
+                      <span class="member-stepper-label">Adults</span>
+                      <div class="member-stepper-controls">
+                        <button class="stepper-btn" id="c1-adults-dec" aria-label="Decrease adults"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                        <span class="stepper-value" id="c1-adults-val" data-zero="false">1</span>
+                        <button class="stepper-btn" id="c1-adults-inc" aria-label="Increase adults"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                      </div>
+                    </div>
+                    <div class="member-stepper">
+                      <img class="member-stepper-icon" src="icons/Child.svg" alt="" width="40" height="40">
+                      <span class="member-stepper-label">Children</span>
+                      <div class="member-stepper-controls">
+                        <button class="stepper-btn" id="c1-children-dec" aria-label="Decrease children"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                        <span class="stepper-value" id="c1-children-val" data-zero="true">0</span>
+                        <button class="stepper-btn" id="c1-children-inc" aria-label="Increase children"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                      </div>
+                    </div>
+                    <div class="member-stepper">
+                      <img class="member-stepper-icon" src="icons/Parennt.svg" alt="" width="40" height="40">
+                      <span class="member-stepper-label">Parents</span>
+                      <div class="member-stepper-controls">
+                        <button class="stepper-btn" id="c1-parents-dec" aria-label="Decrease parents"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                        <span class="stepper-value" id="c1-parents-val" data-zero="true">0</span>
+                        <button class="stepper-btn" id="c1-parents-inc" aria-label="Increase parents"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                      </div>
                     </div>
                   </div>
-                  <div class="member-stepper">
-                    <img class="member-stepper-icon" src="icons/Child.svg" alt="" width="40" height="40">
-                    <span class="member-stepper-label">Children</span>
-                    <div class="member-stepper-controls">
-                      <button class="stepper-btn" id="sc1-children-dec" aria-label="Decrease children"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-                      <span class="stepper-value" id="sc1-children-val" data-zero="true">0</span>
-                      <button class="stepper-btn" id="sc1-children-inc" aria-label="Increase children"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                </div>
+
+                <div class="option-group">
+                  <label class="option-label">Which city do you live in?</label>
+                  <div class="searchable-select" id="c1-citySelect" data-value="bengaluru">
+                    <div class="searchable-select-trigger">
+                      <span class="searchable-select-text">Bengaluru</span>
+                      <svg class="select-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="searchable-select-dropdown">
+                      <div class="searchable-select-search">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <input type="text" placeholder="Search city..." class="searchable-select-input">
+                      </div>
+                      <ul class="searchable-select-options">
+                        <li data-value="bengaluru">Bengaluru</li>
+                        <li data-value="mumbai">Mumbai</li>
+                        <li data-value="delhi">Delhi</li>
+                        <li data-value="chennai">Chennai</li>
+                        <li data-value="hyderabad">Hyderabad</li>
+                        <li data-value="kolkata">Kolkata</li>
+                        <li data-value="pune">Pune</li>
+                        <li data-value="ahmedabad">Ahmedabad</li>
+                        <li data-value="jaipur">Jaipur</li>
+                        <li data-value="other">Other</li>
+                      </ul>
+                      <p class="searchable-select-no-results">No cities found</p>
                     </div>
                   </div>
-                  <div class="member-stepper">
-                    <img class="member-stepper-icon" src="icons/Parennt.svg" alt="" width="40" height="40">
-                    <span class="member-stepper-label">Parents</span>
-                    <div class="member-stepper-controls">
-                      <button class="stepper-btn" id="sc1-parents-dec" aria-label="Decrease parents"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-                      <span class="stepper-value" id="sc1-parents-val" data-zero="true">0</span>
-                      <button class="stepper-btn" id="sc1-parents-inc" aria-label="Increase parents"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+                </div>
+
+              </div>
+
+              <div class="results-panel">
+                <div class="results-content">
+                  <div class="shield-icon" id="c1-shield" hidden>
+                    <img src="Porting.svg" alt="Insurance shield" width="182" height="182">
+                  </div>
+                  <div class="calc-empty-state" id="c1-empty">
+                    <div class="calc-empty-icon-wrap">
+                      <img src="Porting.svg" alt="" width="120" height="120">
+                    </div>
+                    <p class="calc-empty-title">See your price instantly</p>
+                    <p class="calc-empty-subtitle">Adjust the sliders on the left, then hit <strong>Calculate my premium</strong> to get your personalised quote.</p>
+                  </div>
+                  <div class="premium-display" id="c1-result" hidden>
+                    <p class="premium-amount" id="c1-premiumAmount">₹ 13,700</p>
+                    <p class="premium-subtitle">per year — hospital bills go to zero</p>
+                    <p class="premium-perday" id="c1-perDay">₹38/day. Less than your morning chai.</p>
+                  </div>
+                  <div class="price-skeleton" id="c1-skeleton" hidden></div>
+                  <div class="plans-block" id="c1-plans" hidden>
+                    <div class="plans-block-top">
+                      <img class="plans-block-icon-img" src="icons/Health Insurance.svg" alt="" width="66" height="66">
+                      <p class="plans-block-text" id="c1-plansText">Starting at ₹1,142/month</p>
+                    </div>
+                    <div class="plans-trust">
+                      <span class="plans-trust-item">
+                        <img src="icons/hospital.svg" alt="" width="28" height="28">
+                        Cashless at 14,000+ hospitals
+                      </span>
+                      <span class="plans-trust-divider"></span>
+                      <span class="plans-trust-item">
+                        <img src="icons/Blood test.svg" alt="" width="28" height="28">
+                        No medical test needed
+                      </span>
+                    </div>
+                    <div class="plans-block-bottom">
+                      <a class="plans-block-btn" id="c1-plansBtn" href="https://www.acko.com/health-insurance/buy" target="_blank" rel="noopener">
+                        See my health plans <img src="icons/arrow right.svg" alt="" width="16" height="16">
+                      </a>
                     </div>
                   </div>
                 </div>
+                <p class="calc-disclaimer">This calculator serves as a guide. Results are based on the information provided and must not alone be taken as the basis for a financial decision.</p>
               </div>
 
-              <div class="option-group">
-                <label class="option-label">Which city do you live in?</label>
-                <div class="searchable-select" id="sc1-citySelect" data-value="bengaluru">
-                  <div class="searchable-select-trigger">
-                    <span class="searchable-select-display">Bengaluru</span>
-                    <svg class="searchable-select-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </div>
-                  <div class="searchable-select-dropdown">
-                    <input class="searchable-select-search" type="text" placeholder="Search city…">
-                    <ul class="searchable-select-list">
-                      <li data-value="bengaluru">Bengaluru</li>
-                      <li data-value="mumbai">Mumbai</li>
-                      <li data-value="delhi">Delhi</li>
-                      <li data-value="chennai">Chennai</li>
-                      <li data-value="hyderabad">Hyderabad</li>
-                      <li data-value="kolkata">Kolkata</li>
-                      <li data-value="pune">Pune</li>
-                      <li data-value="ahmedabad">Ahmedabad</li>
-                      <li data-value="jaipur">Jaipur</li>
-                      <li data-value="other">Other</li>
-                    </ul>
-                    <p class="searchable-select-no-results">No cities found</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Results panel -->
-            <div class="results-panel">
-              <div class="results-content">
-                <div class="shield-icon" id="sc1-shield" hidden>
-                  <img src="Porting.svg" alt="Health insurance illustration" width="182" height="182">
-                </div>
-                <div class="calc-empty-state" id="sc1-empty">
-                  <div class="calc-empty-icon-wrap">
-                    <img src="Porting.svg" alt="" width="120" height="120">
-                  </div>
-                  <p class="calc-empty-title">See your price instantly</p>
-                  <p class="calc-empty-subtitle">Adjust the sliders, then hit <strong>Calculate my premium</strong> to get your quote.</p>
-                </div>
-                <div class="premium-display" id="sc1-result" hidden>
-                  <p class="premium-amount" id="sc1-premiumAmount">₹ 13,700</p>
-                  <p class="premium-subtitle">per year — hospital bills go to zero</p>
-                  <p class="premium-perday" id="sc1-perDay"></p>
-                </div>
-                <div class="price-skeleton" id="sc1-skeleton" hidden></div>
-                <div class="plans-block" id="sc1-plans" hidden>
-                  <div class="plans-block-top">
-                    <img class="plans-block-icon-img" src="icons/Health Insurance.svg" alt="" width="66" height="66">
-                    <p class="plans-block-text" id="sc1-plansText">Starting at ₹1,142/month</p>
-                  </div>
-                  <div class="plans-trust">
-                    <span class="plans-trust-item">
-                      <img src="icons/hospital.svg" alt="" width="28" height="28">
-                      Cashless at 14,000+ hospitals
-                    </span>
-                    <span class="plans-trust-divider"></span>
-                    <span class="plans-trust-item">
-                      <img src="icons/Blood test.svg" alt="" width="28" height="28">
-                      No medical test needed
-                    </span>
-                  </div>
-                  <div class="plans-block-bottom">
-                    <a class="plans-block-btn" id="sc1-plansBtn" href="https://www.acko.com/health-insurance/buy" target="_blank" rel="noopener">
-                      See my health plans <img src="icons/arrow right.svg" alt="" width="16" height="16">
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <p class="calc-disclaimer">This calculator serves as a guide. Results are based on the information provided and must not alone be taken as the basis for a financial decision.</p>
+              <button class="cta-button" data-calc="c1">Calculate my premium</button>
             </div>
           </div>
-
-          <button class="cta-button" data-calc="sc1">Calculate my premium</button>
         </div>
       </section>
 
       <!-- Section: Ideal Coverage -->
       <section class="seo-section" id="ideal-coverage">
         <h2 class="seo-h2">What is the Ideal Health Insurance Coverage?</h2>
-        <p class="seo-body">The ideal health insurance coverage for an Indian family with aging parents, spouse, and children can be twice the family's annual income considering factors like medical inflation. However, you can choose to get higher or lower coverage as per your needs. Opting for a ₹10–₹25 lakh plan can prove to be sufficient for one year.</p>
+        <p class="seo-body">The ideal health insurance coverage for an Indian family with aging parents, spouse, and children can be twice the family's annual income. However, you can choose to get higher or lower coverage as per your needs. Opting for a ₹10–₹25 lakh plan can prove to be sufficient for one year.</p>
         <p class="seo-body">Here are the other factors you can consider to calculate your ideal coverage:</p>
         <ul class="seo-list seo-list--spaced">
-          <li><strong>Location:</strong> Consider your city of residence as you could need more coverage in tier 1, tier 2, and tier 3 Indian cities. Healthcare costs are higher in these cities.</li>
-          <li><strong>Age:</strong> The age of the oldest member and their medical needs can help you decide your ideal health insurance.</li>
+          <li><strong>Location:</strong> Consider your city of residence — healthcare costs are higher in tier 1 cities.</li>
+          <li><strong>Age:</strong> The age of the oldest member and their medical needs can help you decide your ideal cover.</li>
           <li><strong>Income:</strong> Your income affects the premium you can comfortably pay and the coverage you need.</li>
         </ul>
+      </section>
+
+      <!-- Section: Factors -->
+      <section class="seo-section" id="factors">
+        <h2 class="seo-h2">Factors affecting your premium</h2>
+        <p class="seo-body">Several factors influence the premium you pay for health insurance. Understanding them can help you choose the right plan.</p>
+        <ul class="seo-list seo-list--spaced">
+          <li><strong>Age:</strong> Older individuals typically pay higher premiums due to increased health risks.</li>
+          <li><strong>City:</strong> Metro cities with higher healthcare costs attract higher premiums.</li>
+          <li><strong>Cover amount:</strong> Higher sum insured means higher premium.</li>
+          <li><strong>Number of members:</strong> Family floater plans cost more but offer better value.</li>
+        </ul>
+      </section>
+
+      <!-- Section: How to buy -->
+      <section class="seo-section" id="how-to-buy">
+        <h2 class="seo-h2">How to buy health insurance online</h2>
+        <ol class="seo-list seo-list--spaced">
+          <li>Use the calculator above to estimate your premium.</li>
+          <li>Click "See my health plans" to explore available plans.</li>
+          <li>Select the cover amount and add-ons that suit your family.</li>
+          <li>Complete the purchase online — no agents, no paperwork.</li>
+        </ol>
+      </section>
+
+      <!-- Section: FAQs -->
+      <section class="seo-section" id="faqs">
+        <h2 class="seo-h2">FAQs</h2>
+        <div class="seo-faq-list">
+          <div class="seo-faq-item">
+            <p class="seo-faq-q">What is covered under ACKO health insurance?</p>
+            <p class="seo-faq-a">ACKO health insurance covers hospitalisation, surgeries, ICU charges, pre & post hospitalisation expenses, ambulance charges, and day care procedures.</p>
+          </div>
+          <div class="seo-faq-item">
+            <p class="seo-faq-q">Is there a waiting period for pre-existing diseases?</p>
+            <p class="seo-faq-a">Pre-existing diseases are covered as per the terms and conditions of the policy after the applicable waiting period.</p>
+          </div>
+          <div class="seo-faq-item">
+            <p class="seo-faq-q">Can I get cashless treatment at any hospital?</p>
+            <p class="seo-faq-a">Yes, ACKO offers cashless treatment at 14,000+ network hospitals across India.</p>
+          </div>
+        </div>
       </section>
 
     </main>
   </div>
 
-  <script type="module" src="api.js"></script>
-  <script src="seo-script.js"></script>
+  <!-- Reuse exact same scripts as index.html — handles c1 automatically -->
+  <script src="api.js"></script>
+  <script src="script.js"></script>
+  <script src="seo-toc.js"></script>
 </body>
 </html>
