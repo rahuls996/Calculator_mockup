@@ -47,56 +47,8 @@ function calcC1(p) {
   return { price: total, monthly, daily, coverText: 'Starting at ₹' + monthly.toLocaleString('en-IN') + '/month' };
 }
 
-function calcC2(p) {
-  const base = 5000;
-  const ageComp      = r100(base * getAgeMultiplier(p.age) - base);
-  const cityMul      = cityRiskMap[p.city] || 1.0;
-  const cityComp     = r100(base * (cityMul - 1) * 2);
-  const familyComp   = r100((p.family - 1) * 1550);
-  const incomeFactor = r100(p.income * 30);
-  const existingDisc = -r100(p.existing * 15);
-  const companyDisc  = -r100(p.company * 10);
-  const total = Math.max(base + ageComp + cityComp + familyComp + incomeFactor + existingDisc + companyDisc, 2000);
-  const monthly = Math.ceil(total / 12);
-  const daily   = Math.ceil(total / 365);
-  return { price: total, monthly, daily, coverText: 'Starting at ₹' + monthly.toLocaleString('en-IN') + '/month' };
-}
 
-function calcC3(p) {
-  const annualIncome  = p.income * 100000;
-  const annualExpenses = p.expenses * 12;
-  const yearsToRetire = Math.max(60 - p.age, 5);
-  const rawNeed = annualIncome * Math.min(yearsToRetire, 20)
-    + annualExpenses * 10
-    + p.liabilities * 100000
-    + (p.goals ? p.goals.length : 0) * 1500000
-    - p.existing * 100000;
-  const recommended = Math.max(rawNeed, 2500000);
-  const base = 6000;
-  const ageComp      = r100(base * getAgeMultiplier(p.age) - base);
-  const dependentComp = r100((p.dependents - 1) * 1200);
-  const coverFactor  = r100(recommended / 1000000 * 800);
-  const liabilityComp = r100(p.liabilities * 200);
-  const total = Math.max(base + ageComp + dependentComp + coverFactor + liabilityComp, 3000);
-  const daily = Math.ceil(total / 365);
-  const coverCr = (recommended / 10000000).toFixed(1);
-  const coverText = recommended >= 10000000
-    ? '₹' + coverCr + ' Cr life cover'
-    : '₹' + (recommended / 100000).toFixed(0) + ' L life cover';
-  return { price: total, monthly: Math.ceil(total / 12), daily, coverText };
-}
 
-function calcC4(p) {
-  const workingYears  = Math.max(p.retireAge - p.age, 1);
-  const dependentYears = p.dependents * 3;
-  const liabilityYears = Math.min(Math.ceil(p.liabilities / 5) * 2, 15);
-  const annualIncome  = p.income * 100000;
-  const annualExpenses = p.expenses * 12;
-  const expenseRatio  = annualExpenses / Math.max(annualIncome, 1);
-  const extraYears    = expenseRatio > 0.6 ? 5 : expenseRatio > 0.4 ? 3 : 0;
-  const years = Math.min(Math.max(Math.max(workingYears, dependentYears, liabilityYears) + extraYears, 5), 50);
-  return { price: years, monthly: null, daily: null, coverText: 'Plans from ₹500/month', isYears: true };
-}
 
 function calcC5(p) {
   const yearsLeft = Math.max(p.retireAge - p.age, 1);
@@ -144,7 +96,7 @@ function calcC6(p) {
 
 // ─── Formula dispatch map ────────────────────────────────────────────────────
 
-const formulaMap = { c1: calcC1, c2: calcC2, c3: calcC3, c4: calcC4, c5: calcC5, c6: calcC6 };
+const formulaMap = { c1: calcC1, c5: calcC5, c6: calcC6 };
 
 // ─── Mock network call ───────────────────────────────────────────────────────
 

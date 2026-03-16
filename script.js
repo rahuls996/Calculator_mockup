@@ -193,20 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (plansEl) plansEl.textContent = result.coverText;
       const perdayEl = document.getElementById('c1-perDay');
       if (perdayEl) perdayEl.textContent = result.daily ? '₹' + result.daily + '/day. Less than your morning chai.' : '';
-    } else if (calcId === 'c2') {
-      animateAmount(document.getElementById('c2-premiumAmount'), formatINR(result.price));
-      const plansEl = document.getElementById('c2-plansText');
-      if (plansEl) plansEl.textContent = result.coverText;
-      const perdayEl = document.getElementById('c2-perDay');
-      if (perdayEl) perdayEl.textContent = result.daily ? '₹' + result.daily + '/day — protect your family fully' : '';
-    } else if (calcId === 'c3') {
-      animateAmount(document.getElementById('c3-premiumAmount'), formatINR(result.price));
-      const plansEl = document.getElementById('c3-plansText');
-      if (plansEl) plansEl.textContent = result.coverText;
-      const perdayEl = document.getElementById('c3-perDay');
-      if (perdayEl) perdayEl.textContent = result.daily ? '₹' + result.daily + '/day to protect your family\'s future' : '';
-    } else if (calcId === 'c4') {
-      animateAmount(document.getElementById('c4-yearsAmount'), result.price + ' years');
     } else if (calcId === 'c5') {
       animateAmount(document.getElementById('c5-hlvAmount'), '₹ ' + result.price.toLocaleString('en-IN'));
     } else if (calcId === 'c6') {
@@ -224,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =============================================
 
   async function triggerFetch(calcId) {
-    const calcObj = { c1, c2, c3, c4, c5, c6 }[calcId];
+    const calcObj = { c1, c5, c6 }[calcId];
     if (!calcObj) return;
 
     const params = calcObj.getParams();
@@ -323,162 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // =============================================
-  // CALCULATOR 2: Health Cover Recommendation
-  // =============================================
-
-  const c2 = {
-    state: { age: 30, income: 30, family: 2, existing: 30, company: 5, city: 'bengaluru' },
-
-    getParams() {
-      return { ...this.state };
-    },
-
-    init() {
-      const sliders = {
-        age:      document.getElementById('c2-ageSlider'),
-        income:   document.getElementById('c2-incomeSlider'),
-        family:   document.getElementById('c2-familySlider'),
-        existing: document.getElementById('c2-existingSlider'),
-        company:  document.getElementById('c2-companySlider')
-      };
-
-      sliders.age.addEventListener('input', (e) => {
-        this.state.age = parseInt(e.target.value);
-        document.getElementById('c2-ageValue').textContent = this.state.age;
-        updateSliderProgress(e.target);
-      });
-
-      sliders.income.addEventListener('input', (e) => {
-        this.state.income = parseInt(e.target.value);
-        document.getElementById('c2-incomeValue').textContent = formatLakhsWithRupee(this.state.income);
-        updateSliderProgress(e.target);
-      });
-
-      sliders.family.addEventListener('input', (e) => {
-        this.state.family = parseInt(e.target.value);
-        document.getElementById('c2-familyValue').textContent = this.state.family;
-        updateSliderProgress(e.target);
-      });
-
-      sliders.existing.addEventListener('input', (e) => {
-        this.state.existing = parseInt(e.target.value);
-        document.getElementById('c2-existingValue').textContent = formatLakhsWithRupee(this.state.existing);
-        updateSliderProgress(e.target);
-      });
-
-      sliders.company.addEventListener('input', (e) => {
-        this.state.company = parseInt(e.target.value);
-        document.getElementById('c2-companyValue').textContent = formatLakhsWithRupee(this.state.company);
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c2-citySelect').addEventListener('change', (e) => {
-        this.state.city = e.detail.value;
-      });
-    }
-  };
-
-  // =============================================
-  // CALCULATOR 3: Term Cover Recommendation
-  // =============================================
-
-  const c3 = {
-    state: { age: 30, income: 5, expenses: 10000, dependents: 2, existing: 30, liabilities: 2, goals: ['education'] },
-
-    getParams() {
-      return { ...this.state };
-    },
-
-    init() {
-      document.getElementById('c3-ageSlider').addEventListener('input', (e) => {
-        this.state.age = parseInt(e.target.value);
-        document.getElementById('c3-ageValue').textContent = this.state.age;
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c3-incomeSlider').addEventListener('input', (e) => {
-        this.state.income = parseInt(e.target.value);
-        document.getElementById('c3-incomeValue').textContent = formatLakhsWithRupee(this.state.income);
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c3-expensesSlider').addEventListener('input', (e) => {
-        this.state.expenses = parseInt(e.target.value);
-        document.getElementById('c3-expensesValue').textContent = '₹' + this.state.expenses.toLocaleString('en-IN');
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c3-dependentsSlider').addEventListener('input', (e) => {
-        this.state.dependents = parseInt(e.target.value);
-        document.getElementById('c3-dependentsValue').textContent = this.state.dependents;
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c3-existingSlider').addEventListener('input', (e) => {
-        this.state.existing = parseInt(e.target.value);
-        document.getElementById('c3-existingValue').textContent = formatLakhsWithRupee(this.state.existing);
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c3-liabilitiesSlider').addEventListener('input', (e) => {
-        this.state.liabilities = parseInt(e.target.value);
-        document.getElementById('c3-liabilitiesValue').textContent = formatLakhsWithRupee(this.state.liabilities);
-        updateSliderProgress(e.target);
-      });
-    }
-  };
-
-  // =============================================
-  // CALCULATOR 4: Term Duration Helper
-  // =============================================
-
-  const c4 = {
-    state: { age: 30, dependents: 2, liabilities: 2, income: 5, expenses: 10000, retireAge: 55 },
-
-    getParams() {
-      return { ...this.state };
-    },
-
-    init() {
-      document.getElementById('c4-ageSlider').addEventListener('input', (e) => {
-        this.state.age = parseInt(e.target.value);
-        document.getElementById('c4-ageValue').textContent = this.state.age;
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c4-dependentsSlider').addEventListener('input', (e) => {
-        this.state.dependents = parseInt(e.target.value);
-        document.getElementById('c4-dependentsValue').textContent = this.state.dependents;
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c4-liabilitiesSlider').addEventListener('input', (e) => {
-        this.state.liabilities = parseInt(e.target.value);
-        document.getElementById('c4-liabilitiesValue').textContent = formatLakhsWithRupee(this.state.liabilities);
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c4-incomeSlider').addEventListener('input', (e) => {
-        this.state.income = parseInt(e.target.value);
-        document.getElementById('c4-incomeValue').textContent = formatLakhsWithRupee(this.state.income);
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c4-expensesSlider').addEventListener('input', (e) => {
-        this.state.expenses = parseInt(e.target.value);
-        document.getElementById('c4-expensesValue').textContent = '₹' + this.state.expenses.toLocaleString('en-IN');
-        updateSliderProgress(e.target);
-      });
-
-      document.getElementById('c4-retireSlider').addEventListener('input', (e) => {
-        this.state.retireAge = parseInt(e.target.value);
-        document.getElementById('c4-retireValue').textContent = this.state.retireAge + ' yrs';
-        updateSliderProgress(e.target);
-      });
-    }
-  };
-
-  // =============================================
   // CALCULATOR 5: HLV (Human Life Value) Calculator
   // =============================================
 
@@ -572,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selected.push(b.dataset.value);
       });
 
-      const calcObj = { c1, c2, c3, c4, c5, c6 }[calc];
+      const calcObj = { c1, c5, c6 }[calc];
       if (calcObj) calcObj.state[group] = selected;
     });
   });
@@ -616,9 +446,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const plansBaseUrls = {
     c1: 'https://www.acko.com/health-insurance/buy',
-    c2: 'https://www.acko.com/health-insurance/buy',
-    c3: 'https://www.acko.com/term-life-insurance/buy',
-    c4: 'https://www.acko.com/term-life-insurance/buy',
     c5: 'https://www.acko.com/term-life-insurance/buy',
     c6: 'https://www.acko.com/term-life-insurance/buy'
   };
@@ -629,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
     params.set('utm_source', 'calculator');
     params.set('utm_medium', 'seo');
 
-    const calcObj = { c1, c2, c3, c4, c5, c6 }[calcId];
+    const calcObj = { c1, c5, c6 }[calcId];
     if (!calcObj) return base;
 
     params.set('age', calcObj.state.age);
@@ -640,15 +467,6 @@ document.addEventListener('DOMContentLoaded', () => {
       params.set('adults',   c1.state.adults);
       params.set('children', c1.state.children);
       params.set('city',     c1.state.city);
-    } else if (calcId === 'c2') {
-      params.set('income', c2.state.income);
-      params.set('family', c2.state.family);
-      params.set('city',   c2.state.city);
-    } else if (calcId === 'c3') {
-      params.set('income',     c3.state.income);
-      params.set('dependents', c3.state.dependents);
-    } else if (calcId === 'c4') {
-      params.set('retire_age', c4.state.retireAge);
     } else if (calcId === 'c5') {
       params.set('income', c5.state.income);
     } else if (calcId === 'c6') {
@@ -662,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateBuyCtaUrls() {
-    ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'].forEach(id => {
+    ['c1', 'c5', 'c6'].forEach(id => {
       const el = document.getElementById(id + '-plansBtn');
       if (el) el.href = buildPlansUrl(id);
     });
@@ -675,9 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAllSliders();
   initSearchableSelects();
   c1.init();
-  c2.init();
-  c3.init();
-  c4.init();
   c5.init();
   c6.init();
   updateBuyCtaUrls();
