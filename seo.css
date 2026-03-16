@@ -318,11 +318,21 @@
   margin-bottom: 32px;
 }
 
-/* Let the calculator render exactly as in index.html — no overrides needed */
-.seo-calc-embed .calculator-section {
-  padding: 0;
-  min-height: unset;
-  align-items: unset;
+/* Calculator sizing within SEO page — narrower container than standalone page */
+.seo-calc-embed .calculator-wrapper {
+  max-width: 100%;
+}
+
+.seo-calc-embed .calculator-container {
+  grid-template-columns: 1fr 380px;
+}
+
+/* On narrower SEO main area, stack below 860px */
+@media (max-width: 860px) {
+  .seo-calc-embed .calculator-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* ── FAQs ── */
